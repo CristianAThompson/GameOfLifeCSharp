@@ -11,7 +11,7 @@ namespace GameOfLife.Controllers
         public ActionResult Index()
         {
             Game game = new Game();
-            return View("Index", game);
+            return View("Index", game.grid);
         }
     }
 
