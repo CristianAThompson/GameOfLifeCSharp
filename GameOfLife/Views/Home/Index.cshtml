@@ -12,21 +12,21 @@
             {
                 if (Model[row, column].state)
                 {
-                    <td style="height: 10px; width: 10px; background: green; display: inline-block; margin: 1px;"></td>
+                    <td style="height: 15px; width: 15px; background: green; display: inline-block; margin: 1px;"></td>
                 }
                 else
                 {
-                    <td style="height: 10px; width: 10px; background: red; display: inline-block; margin: 1px;"></td>
+                    <td style="height: 15px; width: 15px; background: red; display: inline-block; margin: 1px;"></td>
                 }
             }
         </tr>
     }
 </table>
 
-<button id="update-grid">Update Grid</button>
+<button id="next-generation">Next Generation</button>
 
 <script type="text/javascript">
-    $("#update-grid").on('click', function() {
+    $("#next-generation").on('click', function() {
         let ajaxURL = "/Home/UpdateGrid";
 
         $.ajax({

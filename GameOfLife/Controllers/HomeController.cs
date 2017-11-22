@@ -18,8 +18,26 @@ namespace GameOfLife.Controllers
         [HttpPost]
         public ActionResult UpdateGrid()
         {
-            Game resetGrid = new Game(100);
-            game.grid = resetGrid.grid;
+            foreach (Cell cell in game.grid)
+            {
+                int aliveCount = cell.neighbors.Count(c => c.state == true);
+                if (aliveCount < 2 && cell.state)
+                {
+                    cell.state = false;
+                }
+                else if (aliveCount == 2 || aliveCount == 3 && cell.state)
+                {
+                    cell.state = true;
+                }
+                else if (aliveCount > 3 && cell.state)
+                {
+                    cell.state = false;
+                }
+                else if (aliveCount == 3 && !cell.state)
+                {
+                    cell.state = true;
+                }
+            }
             return View("Index", game.grid);
         }
     }
