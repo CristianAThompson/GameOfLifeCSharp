@@ -22,3 +22,27 @@
         </tr>
     }
 </table>
+
+<button id="update-grid">Update Grid</button>
+
+<script type="text/javascript">
+    $("#update-grid").on('click', function() {
+        let ajaxURL = "/Home/UpdateGrid";
+
+        $.ajax({
+            type: "POST",
+            url: ajaxURL,
+            contentType: 'application/json; charset=utf-8',
+            async: true,
+            processData: false,
+            cache: false,
+            success: function(response) {
+                $("body").html(response);
+            },
+            error: function(data) {
+                console.log("The Request Failed");
+                console.log(data);
+            }
+        });
+    })
+</script>
