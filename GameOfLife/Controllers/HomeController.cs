@@ -9,7 +9,7 @@ namespace GameOfLife.Controllers
 {
     public class HomeController : Controller
     {
-        Game game = new Game();
+        Game game = new Game(100);
         public ActionResult Index()
         {
             return View("Index", game.grid);
@@ -18,7 +18,7 @@ namespace GameOfLife.Controllers
         [HttpPost]
         public ActionResult UpdateGrid()
         {
-            Game resetGrid = new Game();
+            Game resetGrid = new Game(100);
             game.grid = resetGrid.grid;
             return View("Index", game.grid);
         }
